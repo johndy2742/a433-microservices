@@ -6,12 +6,6 @@ REPO_NAME="a433-microservices"
 IMAGE_NAME="karsajobs-ui"
 TAG="latest"
 
-# Load your GitHub Personal Access Token (PAT) from .env file
-if [[ -f .env ]]; then
-  source .env
-else
-  echo "Please create a .env file with your GITHUB_TOKEN." && exit 1
-fi
 
 # Build the Docker image
 docker build -t ${IMAGE_NAME}:${TAG} .

@@ -6,13 +6,6 @@ REPO_NAME="a433-microservices"
 IMAGE_NAME="karsajobs"
 TAG="latest"
 
-# Load your GitHub Personal Access Token (PAT) from .env file
-if [[ -f .env ]]; then
-  source .env
-else
-  echo "Please create a .env file with your GITHUB_TOKEN." && exit 1
-fi
-
 # Build the Docker image (replace with your build process)
 docker build -t ${IMAGE_NAME}:${TAG} .
 
@@ -20,7 +13,7 @@ docker build -t ${IMAGE_NAME}:${TAG} .
 docker tag ${IMAGE_NAME}:${TAG} ghcr.io/${GITHUB_USERNAME}/${REPO_NAME}/${IMAGE_NAME}:${TAG}
 
 # Log in to GitHub Container Registry using your GitHub PAT
-docker login ghcr.io -u ${GITHUB_USERNAME} -p ${GITHUB_TOKEN}
+docker login ghcr.io -u ${GITHUB_USERNAME} -p ${TOKEN}
 
 # Push the Docker image to GitHub Container Registry
 docker push ghcr.io/${GITHUB_USERNAME}/${REPO_NAME}/${IMAGE_NAME}:${TAG}

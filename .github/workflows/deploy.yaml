@@ -30,4 +30,4 @@ jobs:
           chmod +x build_push_image_karsajobs_ui.sh
           ./build_push_image_karsajobs_ui.sh
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}

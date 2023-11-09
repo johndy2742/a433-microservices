@@ -20,7 +20,7 @@ docker build -t ${IMAGE_NAME}:${TAG} .
 docker tag ${IMAGE_NAME}:${TAG} ghcr.io/${GITHUB_USERNAME}/${REPO_NAME}/${IMAGE_NAME}:${TAG}
 
 # Log in to GitHub Container Registry using your GitHub PAT
-docker login ghcr.io -u ${GITHUB_USERNAME} -p ${GITHUB_TOKEN}
+docker login ghcr.io -u ${GITHUB_USERNAME} -p ${TOKEN}
 
 # Push the Docker image to GitHub Container Registry
 docker push ghcr.io/${GITHUB_USERNAME}/${REPO_NAME}/${IMAGE_NAME}:${TAG}

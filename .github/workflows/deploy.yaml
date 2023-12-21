@@ -27,8 +27,8 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          chmod +x build_push_image_karsajobs.sh
-          ./build_push_image_karsajobs.sh
+          chmod +x build_push_image_order_service.sh
+          ./build_push_image_order_service.sh
         env:
           TOKEN: ${{ secrets.TOKEN }}
 

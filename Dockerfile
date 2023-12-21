@@ -15,7 +15,7 @@ COPY . .
 
 
 # Install Bash dan download script "wait-for-it.sh" dari GitHub
-RUN apk add --no-cache bash
+RUN apk add --no-cache bash=5.1.16
 RUN wget --progress=dot:giga -O /bin/wait-for-it.sh https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh
 
 # ubah permission script "wait-for-it.sh" menjadi executable

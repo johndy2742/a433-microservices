@@ -7,7 +7,7 @@ IMAGE_NAME="shipping-service"
 TAG="latest"
 
 # Build the Docker image (replace with your build process)
-docker build -t ${IMAGE_NAME}:${TAG} .
+docker build --no-cache -t ${IMAGE_NAME}:${TAG} .
 
 # Tag the image for GitHub Container Registry (ghcr.io)
 docker tag ${IMAGE_NAME}:${TAG} ghcr.io/${GITHUB_USERNAME}/${REPO_NAME}/${IMAGE_NAME}:${TAG}

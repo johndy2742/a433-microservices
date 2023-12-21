@@ -14,9 +14,9 @@ RUN npm install
 COPY . .
 
 
-# Instal Bash dan download script "wait-for-it.sh" dari GitHub
+# Install Bash dan download script "wait-for-it.sh" dari GitHub
 RUN apk add --no-cache bash
-RUN wget -O /bin/wait-for-it.sh https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh
+RUN wget --progress=dot:giga -O /bin/wait-for-it.sh https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh
 
 # ubah permission script "wait-for-it.sh" menjadi executable
 RUN chmod +x /bin/wait-for-it.sh

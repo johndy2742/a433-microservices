@@ -1,7 +1,7 @@
 {
   "name": "order-service",
   "version": "1.0.0",
-  "description": "",
+  "description": "Order Service adalah bagian dari E-Commerce yang merupakan starter project dari kelas Belajar Membangun Arsitektur Microservices",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

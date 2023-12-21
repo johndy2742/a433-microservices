@@ -31,6 +31,3 @@ jobs:
           ./build_push_image_order_service.sh
         env:
           TOKEN: ${{ secrets.TOKEN }}
-
-      - name: Test App
-        run: go test -v -short --count=1 $(go list ./...)

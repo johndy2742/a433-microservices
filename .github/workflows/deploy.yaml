@@ -1,0 +1,36 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - order-srevice
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Hadolint
+        run: |
+          sudo wget -O /usr/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.0.0/hadolint-Linux-x86_64
+          sudo chmod +x /usr/bin/hadolint
+
+      - name: Lint Dockerfile
+        run: |
+          hadolint Dockerfile
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and Push Docker Image
+        run: |
+          chmod +x build_push_image_karsajobs.sh
+          ./build_push_image_karsajobs.sh
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+
+      - name: Test App
+        run: go test -v -short --count=1 $(go list ./...)
